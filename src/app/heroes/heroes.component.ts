@@ -13,7 +13,6 @@ import { MessageService } from '../message.service';
 })
 export class HeroesComponent implements OnInit {
   heroes?: Hero[];
-  selectedHero?: Hero;
 
   //tempHero = new Hero(1,'SuperMan');
   //hero : Hero = {_id: 1, _name: 'WinterMan'};//use this if the field is public
@@ -29,11 +28,5 @@ export class HeroesComponent implements OnInit {
 
   getHeroes(): void {
     this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
-  }
-
-  onSelected(hero: Hero) {
-    this.selectedHero = hero;
-    console.log(this.selectedHero);
-    this.messageService.add('HeroesComponent: Selected hero id=' + hero.id);
   }
 }
